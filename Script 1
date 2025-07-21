@@ -1,0 +1,17 @@
+>> f=@(x) x^3-4*x+1;
+>> df=@(x) 3*x^2-4;
+>> x=1;
+>> tol = 0.003;
+>> max_iter = 2;
+>> for iter = 1:max_iter;
+fx=f(x);
+dfx=df(x);
+if dfx == 0;
+end
+x_new = x - (fx/dfx);
+if abs(x_new - x) <tol
+break;
+end
+x = x_new;
+end
+>> fprintf('Root: %.8f, Iterations: %d\n', x, iter);
